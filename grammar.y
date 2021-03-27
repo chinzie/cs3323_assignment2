@@ -106,7 +106,7 @@ a_term : a_term T_MUL a_fact
 a_fact : varref
     | T_NUM
     | T_LITERAL_STR
-    | a_fact T_SUB
+    | T_SUB a_fact
     | '('a_expr')'
     ;
 
@@ -141,8 +141,7 @@ read : T_READ varlist ;
 
 write: T_WRITE expr_list;
 
-varlist :
-	varref	
+varlist : varref	
       | varlist ',' varref
       ;
 
